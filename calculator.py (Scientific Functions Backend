@@ -1,0 +1,38 @@
+import math
+
+class ScientificCalculator:
+
+    def add(self, a, b):
+        return a + b
+
+    def subtract(self, a, b):
+        return a - b
+
+    def multiply(self, a, b):
+        return a * b
+
+    def divide(self, a, b):
+        if b == 0:
+            return "Error: Division by zero"
+        return a / b
+
+    def power(self, a, b):
+        return a ** b
+
+    def sqrt(self, a):
+        return math.sqrt(a)
+
+    def sin(self, a):
+        return math.sin(math.radians(a))
+
+    def cos(self, a):
+        return math.cos(math.radians(a))
+
+    def tan(self, a):
+        return math.tan(math.radians(a))
+
+    def log(self, a):
+        return math.log(a)
+
+    def log10(self, a):
+        return math.log10(a)
