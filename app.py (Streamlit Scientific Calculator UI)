@@ -1,0 +1,48 @@
+import streamlit as st
+from calculator import ScientificCalculator
+
+calc = ScientificCalculator()
+
+st.title("🧮 Scientific Calculator")
+st.write("---")
+
+operation = st.selectbox(
+    "Choose Operation",
+    [
+        "Add", "Subtract", "Multiply", "Divide",
+        "Power (x^y)", "Square Root", 
+        "Sin", "Cos", "Tan",
+        "Log (Natural)", "Log10"
+    ]
+)
+
+# Handle input based on whether operation requires 1 or 2 numbers
+if operation in ["Add", "Subtract", "Multiply", "Divide", "Power (x^y)"]:
+    num1 = st.number_input("Enter first number:", value=0.0)
+    num2 = st.number_input("Enter second number:", value=0.0)
+else:
+    num1 = st.number_input("Enter number:", value=0.0)
+
+if st.button("Calculate"):
+    if operation == "Add":
+        st.success(f"Result: {calc.add(num1, num2)}")
+    elif operation == "Subtract":
+        st.success(f"Result: {calc.subtract(num1, num2)}")
+    elif operation == "Multiply":
+        st.success(f"Result: {calc.multiply(num1, num2)}")
+    elif operation == "Divide":
+        st.success(f"Result: {calc.divide(num1, num2)}")
+    elif operation == "Power (x^y)":
+        st.success(f"Result: {calc.power(num1, num2)}")
+    elif operation == "Square Root":
+        st.success(f"Result: {calc.sqrt(num1)}")
+    elif operation == "Sin":
+        st.success(f"Result: {calc.sin(num1)}")
+    elif operation == "Cos":
+        st.success(f"Result: {calc.cos(num1)}")
+    elif operation == "Tan":
+        st.success(f"Result: {calc.tan(num1)}")
+    elif operation == "Log (Natural)":
+        st.success(f"Result: {calc.log(num1)}")
+    elif operation == "Log10":
+        st.success(f"Result: {calc.log10(num1)}")
